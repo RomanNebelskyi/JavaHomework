@@ -13,23 +13,20 @@ public class Kamikaze extends Warrior
     public void attack(Warrior warrior)
     {
         var d = Math.random();
-        if (d < 0.4)
+        if (d < 0.8)
         {
             warrior.setHp(warrior.getHp()- this.getDamage());
-            System.out.println(this.getClass().getName() + "punched " + warrior.getClass().getName()+ " with  "+ this.getDamage()  );
+            System.out.println(this.getClass().getSimpleName() + " punched " + warrior.getClass().getSimpleName()+ " with  "+ this.getDamage()  );
         }
 
-        else if (d < 0.60){
+        else {
             warrior.setHp(warrior.getHp()- this.getDamage() - this.getCritDamage()); //
-            System.out.println(this.getClass().getName() + "punched " + warrior.getClass().getName()+ " with  "+ (this.getDamage() + this.getCritDamage()) );
+            System.out.println(this.getClass().getSimpleName() + " punched " + warrior.getClass().getSimpleName()+ " with  "+ (this.getDamage() + this.getCritDamage()) );
 
         }
 
-        else{
-            warrior.setHp(warrior.getHp()- this.getDamage());
-            System.out.println(this.getClass().getName() + "punched " + warrior.getClass().getName()+ " with  "+ this.getDamage()  );
-        }
-        System.out.println("Warrior " +warrior.getClass().getName() + "has "  + warrior.getHp()+ "hp");
+
+        System.out.println("Warrior " +warrior.getClass().getSimpleName() + " has "  + warrior.getHp()+ " hp ");
 
     }
 }

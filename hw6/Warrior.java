@@ -29,7 +29,7 @@ public abstract class Warrior {
     }
 
     public void setLive(boolean live) {
-        isLive = live;
+        this.isLive = live;
     }
 
     public int getHp() {
