@@ -21,7 +21,7 @@ public class Main {
         while (checkTeamIsLive(blue) && checkTeamIsLive(red))
         {
 
-            for (int i = 0; i < blue.length; i++) {
+            for (int i = 0; i <= blue.length; i++) {
                 int a = 0;
                 int b = blue.length;
                 int random_number1 = a + (int) (Math.random() * b);
