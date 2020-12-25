@@ -2,37 +2,33 @@ package hw8;
 
 import java.util.Scanner;
 
-public class Main extends Functions
+public class Main extends  Tabulation
 {
 
     // може сканер бути полем? чи краще створювати сканер нижче? чи краще створити
     public static void main(String[] args)
     {    // сканер в мейні, але передавати його в функцію checkMonthExistence()?
 
+        System.out.println("Enter your month \n");
         Scanner scanner = new Scanner(System.in);
-       Months months = checkMonthExistence(scanner.nextLine());
+        Months months  = checkMonthExistence(scanner.nextLine());
+        int choice = 0;
 
-            if( months!=null)
-            {
-                System.out.println("Exists");
-            }
-            else
-            {
-                System.out.println("Doesn*t exist");
-            }
-        System.out.println("Same seasons");
-            findSameSeason(months);
-        System.out.println();
-        System.out.println("Same days");
-            findSameDays(months);
-        System.out.println();
-        System.out.println("less days");
-        findLessDays(months);
-        System.out.println();
-        System.out.println("Same days");
-        findMoreDays(months);
-        System.out.println("Next season");
-        System.out.println();findNextSeason(months);
+        do {
+
+            System.out.println("Enter next choice \n");
+            choice = scanner.nextInt();
+            tabulation(choice, months);
+
+        }while (choice!=0);
+
+        /*for(int i = 0;i<Months.values().length;++i)
+        {
+            months = Months.values()[i];
+            System.out.println("Next season of month -- " + months.toString());
+            System.out.println(findPreviousSeason(months).toString()+ "\n");
+        }*/
+
     }
 
 }
