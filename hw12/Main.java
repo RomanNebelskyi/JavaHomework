@@ -12,12 +12,12 @@ public class Main
         Scanner scanner = new Scanner(System.in);
         System.out.println("use ENTER after every word\n");
 
-       while (!( buf.equals("break") ))
-       {
+       while (!( "break".equals(buf) ))
+        {
         buf = scanner.nextLine();
         integerList.add(buf);
         }
-        integerList.remove(buf); // to remove break word
+        integerList.remove(buf); // to remove "break" word
 
        try
        {
@@ -25,15 +25,10 @@ public class Main
                 throw new Exception("Zero length of ArrayList!");
 
        }
-       catch (Exception e)
-       {
-           System.out.println(e);
-           return;
-       }
 
         for (int i  = 0;i< integerList.size();++i)
         {
-            if (!(integerList.get(i).indexOf("s") == 0))
+            if (integerList.get(i).startsWith("s"))
                 System.out.println(integerList.get(i));
         }
         System.out.println();
