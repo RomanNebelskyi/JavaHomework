@@ -1,6 +1,7 @@
 package Soft.hw18;
 
-public class RunnableThread implements Runnable {
+public class RunnableThread implements Runnable
+{
 
     private long delayMs;
     private int quantityOfNums;
@@ -26,7 +27,12 @@ public class RunnableThread implements Runnable {
                     (Math.sqrt(5.0) )));
             try
             {
-                wait(delayMs);
+                // тут випадав екзепшн, треба методі писати в блоці синхронайзед і передавати туди об*єкт
+                synchronized (this)
+                {
+                    this.wait(delayMs);
+                }
+
             }
             catch (InterruptedException e)
             {
@@ -35,7 +41,5 @@ public class RunnableThread implements Runnable {
         }
 
     }
-
-
 
 }
