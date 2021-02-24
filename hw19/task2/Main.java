@@ -3,6 +3,8 @@ package Soft.hw19.task2;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class Main
@@ -11,7 +13,7 @@ public class Main
 
         Date date = new Date();
         System.out.println(date);
-      System.out.println(convert(date));
+        System.out.println(convert(date));
        // System.out.println(date.getYear() + 1900);
         System.out.println(convertTime(date));
         System.out.println(convertDateTime(date));
@@ -19,23 +21,16 @@ public class Main
 
     static LocalDate convert(Date date)
     {
-        String [] parse  =date.toString().split(" ");
-
-        LocalDate localDate = LocalDate.of(date.getYear() + 1900, date.getMonth()+1, Integer.parseInt(parse[2]));
-        return localDate;
+        return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
     }
 
     static LocalTime convertTime(Date date)
     {
-        LocalTime localTime = LocalTime.of(date.getHours(), date.getMinutes(), date.getSeconds());
-        return localTime;
+        return date.toInstant().atZone(ZoneId.systemDefault()).toLocalTime();
     }
     static LocalDateTime convertDateTime(Date date)
     {
-        String [] parse  =date.toString().split(" ");
-        LocalDateTime localTime = LocalDateTime.of(date.getYear()+ 1900 , date.getMonth()+1, Integer.parseInt(parse[2]),
-                date.getHours(),date.getMinutes(), date.getSeconds());
-        return localTime;
+        return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
     }
 
 }
