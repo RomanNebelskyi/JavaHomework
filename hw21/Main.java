@@ -65,8 +65,9 @@ public class Main {
 
     static List<Person> findWorkingPeople(List<Person> list) {
         return list.stream()
-                .filter(person -> "male".equalsIgnoreCase(person.getSex()) && person.getAge() >= 18 && person.getAge() <= 60)
-                .filter(person -> "female".equalsIgnoreCase(person.getSex()) && person.getAge() >= 18 && person.getAge() <= 55).collect(Collectors.toList());
+                .filter(person -> ("male".equalsIgnoreCase(person.getSex()) && person.getAge() >= 18 && person.getAge() <= 60) ||
+                                  ("female".equalsIgnoreCase(person.getSex()) && person.getAge() >= 18 && person.getAge() <= 55))
+                .collect(Collectors.toList());
 
     }
 
